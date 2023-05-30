@@ -2,14 +2,47 @@
 
 import { Container, MantineProvider, Navbar, Stack } from '@mantine/core';
 import { PropsWithChildren } from 'react';
+import {
+  IconHome,
+  IconFavorie,
+  IconSharp,
+  IconList,
+  IconMail,
+  IconMedia,
+  IconMore,
+  IconNotify,
+  IconProfile,
+  IconTimeLine,
+} from './ui/icons';
+import Link from 'next/link';
 
 type mockNavbarItemProps = {
-  icon: any;
+  icon: React.ReactNode;
   label: string;
   href: string;
 };
 
-const mockNavbar: mockNavbarItemProps[] = [];
+const mockNavbar: mockNavbarItemProps[] = [
+  {
+    href: '/',
+    icon: <IconHome />,
+    label: 'Home',
+  },
+  {
+    href: '/',
+    icon: <IconSharp />,
+    label: 'Explore',
+  },  {
+    href: '/',
+    icon: <IconNotify />,
+    label: 'Notifications',
+  },
+  {
+    href: '/',
+    icon: <IconMail />,
+    label: 'Messages',
+  },
+];
 
 export default function AppShell({ children }: PropsWithChildren) {
   return (
@@ -32,7 +65,13 @@ export default function AppShell({ children }: PropsWithChildren) {
     >
       <Container maw={1265} mah={'100vh'} h={'100%'} display={'flex'}>
         <Stack justify="space-between">
-          {/* <Navbar></Navbar> */}
+          <Navbar>
+            {mockNavbar.map(el => (
+              <Link href={el.href} key={el.label}>
+                {el.label}
+              </Link>
+            ))}
+          </Navbar>
         </Stack>
         <Stack style={{ flex: 1 }} justify="space-between">
           {children}

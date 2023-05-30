@@ -1,9 +1,7 @@
-type Props = {
-  size?: number;
-  filled?: boolean;
-};
+import { IconProps } from ".";
 
-export const IconNotify = ({ size = 24, filled = false }: Props) => {
+
+export const IconFavorie = ({ size = 24, filled = false }: IconProps) => {
   if (filled) {
     return (
       <svg

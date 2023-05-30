@@ -3,7 +3,7 @@ type Props = {
   filled?: boolean;
 };
 
-export const IconHarp = ({ size = 24, filled = false }: Props) => {
+export const IconSharp = ({ size = 24, filled = false }: Props) => {
   if (filled) {
     return (
       <svg

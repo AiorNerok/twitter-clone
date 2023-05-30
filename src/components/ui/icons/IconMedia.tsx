@@ -2,7 +2,7 @@ type Props = {
   size?: number;
 };
 
-export const IconTimeLine = ({ size }: Props) => {
+export const IconMedia = ({ size }: Props) => {
   return (
     <svg
       width={size}

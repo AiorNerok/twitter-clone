@@ -3,7 +3,7 @@ type Props = {
   filled?: boolean;
 };
 
-export const IconNotify = ({ size = 24, filled = false }: Props) => {
+export const IconList = ({ size = 24, filled = false }: Props) => {
   if (filled) {
     return (
       <svg
