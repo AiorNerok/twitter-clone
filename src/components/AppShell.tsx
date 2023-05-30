@@ -16,6 +16,18 @@ import {
 } from './ui/icons';
 import Link from 'next/link';
 
+import { createStyles } from '@mantine/core';
+
+const useStyle = createStyles({
+  Navigation: {
+    border: 0,
+    background: 'transparent',
+    width: 275,
+    padding: '0 12px',
+  },
+  NavigationItem: {display:"flex", alignItems:"center", height:50, padding:"8px 0"},
+});
+
 type mockNavbarItemProps = {
   icon: React.ReactNode;
   label: string;
@@ -32,7 +44,8 @@ const mockNavbar: mockNavbarItemProps[] = [
     href: '/',
     icon: <IconSharp />,
     label: 'Explore',
-  },  {
+  },
+  {
     href: '/',
     icon: <IconNotify />,
     label: 'Notifications',
@@ -45,6 +58,7 @@ const mockNavbar: mockNavbarItemProps[] = [
 ];
 
 export default function AppShell({ children }: PropsWithChildren) {
+  const { classes } = useStyle();
   return (
     <MantineProvider
       withNormalizeCSS
@@ -65,9 +79,10 @@ export default function AppShell({ children }: PropsWithChildren) {
     >
       <Container maw={1265} mah={'100vh'} h={'100%'} display={'flex'}>
         <Stack justify="space-between">
-          <Navbar>
+          <Navbar className={classes.Navigation}>
             {mockNavbar.map(el => (
-              <Link href={el.href} key={el.label}>
+              <Link className={classes.NavigationItem} href={el.href} key={el.label}>
+                {el.icon}
                 {el.label}
               </Link>
             ))}
